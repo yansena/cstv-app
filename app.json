@@ -3,8 +3,11 @@
     "name": "cs-tv-app",
     "slug": "cs-tv-app",
     "version": "1.0.0",
-    "assetBundlePatterns": [
-      "**/*"
-    ]
+    "assetBundlePatterns": ["**/*"],
+    "splash": {
+      "image": "./src/assets/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#161621"
+    }
   }
 }
