@@ -15,7 +15,7 @@ module.exports = function(api) {
             '@components': './src/presentation/components',
             '@pages': './src/presentation/pages'
           }
-        }
+        },
       ]
     ]
   };
