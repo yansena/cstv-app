@@ -1,23 +1,27 @@
 {
   "extends": "expo/tsconfig.base",
+  "ts-node": {
+    "require": ["tsconfig-paths/register"]
+  },
   "compilerOptions": {
     "strict": true,
     "baseUrl": ".",
     "allowUnreachableCode": true,
     "paths": {
-      "*": [
-        "src/*"
-      ],
-      "@components": [
-        "src/presentation/components/*"
-      ],
-      "@atoms": [
-        "src/presentation/components/atoms/*"
-      ]
+      "@assets/*": ["./src/assets/*"],
+      "@data/*": ["./src/data/*"],
+      "@domain/*": ["./src/domain/*"],
+      "@presentation/*": ["src/presentation/*"],
+      "@components/*": ["./src/presentation/components/*"],
+      "@pages/*": ["./src/presentation/pages/*"]
     }
   },
   "include": [
     "**/*.ts",
-    "**/*.tsx"
+    "**/*.tsx",
+    "./src/assets/*",
+    "./src/data/*",
+    "./src/domain/*",
+    "./src/presentation/*"
   ]
 }
