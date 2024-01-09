@@ -1,0 +1,10 @@
+{
+  "expo": {
+    "name": "cs-tv-app",
+    "slug": "cs-tv-app",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  }
+}
