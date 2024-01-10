@@ -16,7 +16,13 @@ Para começar a utilizar o CSTV App, siga estas instruções:
 
 `cd cstv-app`
 
-###
+### 3. Instale as dependências necessárias:
+
+`npm install`
+
+with use yarn
+
+`yarn add`
 
 ## Uso
 
