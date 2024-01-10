@@ -24,18 +24,25 @@ with use yarn
 
 `yarn add`
 
+### 4. Inicie o aplicativo:
+
+`npx expo start` to run **expo cli** startup and run app via **expo go**
+`npx expo run:ios` to run direct app in **bare mode**, startup and run app like a **reac cli way** on **ios**
+`npx expo run:android` to run direct app in **bare mode**, startup and run app like a **reac cli way** on **android**
+
 ## Uso
 
-Instruções sobre como usar o projeto.
+O applicativo tem como tela inicial uma homepage que lista os ultimos jogos sempre priorizando os ao vivo, e clicando nos jogos você obtem detalhes de cada um, com a possibilidade de pull to refresh na home.
 
 ## Contribuição
 
-Informações sobre como contribuir para o projeto.
+Agradecemos por considerar a contribuição para o CSTV App. Se desejar contribuir, siga estas etapas:
 
-## Licença
+Abra uma issue para discutir as mudanças que você gostaria de fazer.
+Faça um fork do repositório e crie uma nova branch para suas alterações.
+Certifique-se de seguir as diretrizes de estilo de código.
+Envie uma solicitação de pull quando estiver pronto.
 
-Informações sobre a licença do projeto, se aplicável.
+## Agradecimentos
 
-## Contato
-
-Informações de contato para dúvidas ou sugestões.
+Agradecemos a todos os colaboradores e recursos que contribuíram para o desenvolvimento do CSTV App.
