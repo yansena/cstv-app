@@ -7,7 +7,13 @@
     "splash": {
       "image": "./src/assets/splash.png",
       "resizeMode": "contain",
-      "backgroundColor": "#161621"
+      "backgroundColor": "#0f0f0f"
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./src/assets/icon.png",
+        "backgroundColor": "#0f0f0f"
+      }
     },
     "plugins": []
   }
