@@ -1,5 +1,6 @@
 import { api } from "@data/api";
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+import axios from "axios";
 
 export type TournamentProps = {
   begin_at: string;
@@ -66,7 +67,7 @@ type VideogameProps = {
   slug: string;
 };
 
-type OpponentProps = {
+export type OpponentProps = {
   acronym: string;
   id: number;
   image_url: string;
@@ -76,19 +77,19 @@ type OpponentProps = {
   slug: string;
 };
 
-type OpponentsProps = {
+export type OpponentsProps = {
   opponent: OpponentProps;
   type: string;
 };
 
-type VideogameTitleProps = {
+export type VideogameTitleProps = {
   id: number;
   name: string;
   slug: string;
   videogame_id: number;
 };
 
-type LeagueProps = {
+export type LeagueProps = {
   id: number;
   image_url: string;
   modified_at: string;
@@ -134,23 +135,30 @@ export type MatchProps = {
   detailed_stats: boolean;
   number_of_games: number;
   match_type: boolean;
-  league: string;
+  league: LeagueProps;
   serie_id: number;
   videogame_title: VideogameTitleProps;
 };
 
 type MatchState = {
   matchs: MatchProps[];
+  match: MatchProps;
   loading: boolean;
 };
 
 const initialState: MatchState = {
   matchs: [],
+  match: {} as MatchProps,
   loading: false,
 };
 
 type FetchMatchsPayloadProps = {
   access_token: string;
+};
+
+type FetchMatchByIdPayloadProps = {
+  access_token: string;
+  id: string;
 };
 
 export const fetchMatchs = createAsyncThunk(
@@ -161,12 +169,35 @@ export const fetchMatchs = createAsyncThunk(
         headers: {
           authorization: `Bearer ${payload.access_token}`,
         },
+        params: {
+          sort: "scheduled_at",
+          "filter[status]": "running,not_started",
+        },
       };
 
       const response = await api.get("/csgo/matches", config);
       return response.data;
     } catch (error) {
       console.log(error);
+    }
+  }
+);
+
+export const fetchMatchById = createAsyncThunk(
+  "matchs/fetchMatchById",
+  async (payload: FetchMatchByIdPayloadProps) => {
+    try {
+      const config = {
+        headers: {
+          authorization: `Bearer ${payload.access_token}`,
+        },
+      };
+
+      const response = await api.get(`/matches/${payload.id}`, config);
+      console.log("🚀 ~ response:", response.data);
+      return response.data;
+    } catch (error) {
+      console.log({ error });
     }
   }
 );
@@ -188,6 +219,16 @@ const matchSlice = createSlice({
       state.loading = true;
     });
     builder.addCase(fetchMatchs.rejected, (state, action) => {
+      state.loading = false;
+    });
+    builder.addCase(fetchMatchById.fulfilled, (state, action) => {
+      state.match = action.payload;
+      state.loading = false;
+    });
+    builder.addCase(fetchMatchById.pending, (state, action) => {
+      state.loading = true;
+    });
+    builder.addCase(fetchMatchById.rejected, (state, action) => {
       state.loading = false;
     });
   },

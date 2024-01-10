@@ -5,9 +5,11 @@ import {
   AnyAction,
 } from "@reduxjs/toolkit";
 import { matchReducer } from "../slices/matchs-slice";
+import { teamsReducer } from "../slices/teams-slice";
 
 const rootReducer = combineReducers({
   match: matchReducer,
+  teams: teamsReducer,
 });
 
 export const store = configureStore({

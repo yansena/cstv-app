@@ -1,10 +1,11 @@
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { Home } from "@presentation/pages/Home";
 import { MatchDetail } from "@presentation/pages/MatchDetail";
+import { MatchProps } from "@data/redux/slices/matchs-slice";
 
-type StackNavigatorParamList = {
+export type StackNavigatorParamList = {
   Home: undefined;
-  MatchDetail: undefined;
+  MatchDetail: { match: MatchProps };
 };
 
 const { Navigator, Screen } =
