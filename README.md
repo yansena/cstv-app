@@ -10,6 +10,14 @@ Para começar a utilizar o CSTV App, siga estas instruções:
 
 ### 1. Clone o repositório para o seu ambiente local:
 
+`git clone https://github.com/yansena/cstv-app `
+
+### 2. Navegue até o diretório do projeto::
+
+`cd cstv-app`
+
+###
+
 ## Uso
 
 Instruções sobre como usar o projeto.
